@@ -5,7 +5,8 @@ export default class Navbar extends Component {
     render() {
         return (
             <div className="navbar">
-                Pokemon App
+               <a href="" className="navbar-a">Pokemon App</a>
+               <a href="" className="navbar-a">My Pokemons</a>
             </div>
         )
     }

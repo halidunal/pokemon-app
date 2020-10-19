@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar"
 import Card from "./components/Card"
 import "./App.css";
 import { render } from "@testing-library/react";
+import backgroundImage from "./assets/bg.jpg"
 
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -55,11 +56,12 @@ function App() {
 
 render()
   return (
-    <div>
+    <div className="main" style={{background: `url(${backgroundImage})`}}>
     <Navbar/>
     <div className="container">
       {loading ? <h1>Loading Pokemons...</h1> : (
-      <div style={{margin:50, padding:50,display:"flex",flexWrap:"wrap", justifyContent:"center"}} className="card" >
+     
+    <div className="card-container" style={{ display:"flex",flexWrap:"wrap", justifyContent:"center"}}  >
         {pokemonData.map((pokemon)=>{
           return <Card pokemon={pokemon}/>
         })}
