@@ -1,8 +1,8 @@
 .card{
-    cursor:"pointer";
     border-radius:20;
     border: 1px solid;
     min-width:180px;
+    max-width: 180px;
     min-height:280px;
     max-height:280px;
     text-align:"center";
@@ -22,6 +22,7 @@
     border-radius: 5px;
     font-size: 1em;
     font-weight: bold;
+    cursor: grab;
 }
 
 .btn:hover{
@@ -30,6 +31,8 @@
 
 .btn:focus{
     outline: none;
+    cursor: grabbing;
+
 }
 
 .card-types{

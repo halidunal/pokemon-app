@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./card.css";
+import alertify from "alertifyjs"
 
 function Card({ pokemon }) {
+
+  const [myPokemons, setMyPokemons] = useState([]);
+  
+  function catchPokemon(pokemon){
+    const newPokemon = myPokemons;
+    newPokemon.push({pokemon});
+    setMyPokemons({pokemon: newPokemon})
+    alertify.success(pokemon.name + " added my pokemons")
+    //console.log(myPokemons);
+  }
+
   return (
     <div
       className="card"
@@ -22,12 +34,19 @@ function Card({ pokemon }) {
             <div className="card-name">{pokemon.name.toUpperCase()}</div>
 
             <div className="card-types">
-                {pokemon.types.map((type) => {
+                {pokemon.types.map(type => {
                     return (
                     <div className="card-type">{type.type.name.toUpperCase()}</div>);
                     })
                 }
             </div>
+            {/* <div className="card-types">
+                {pokemon.abilities.map((ability) => {
+                    return (
+                    <div className="card-type">{ability.ability.name.toUpperCase()}</div>);
+                    })
+                }
+            </div> */}
             {/* <div className="card-data card-data-weight">
                 <p className="title">WEIGHT: {pokemon.weight}</p>
             </div>
@@ -35,7 +54,7 @@ function Card({ pokemon }) {
                 <p className="title">HEIGHT: {pokemon.height}</p>
             </div> */}
             <div>
-                <button className="btn">Catch Pokemon</button>
+                <button className="btn" onClick={()=>catchPokemon(pokemon)}>Catch Pokemon</button>
             </div>
         </div>
       </div>
