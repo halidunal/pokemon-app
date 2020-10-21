@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
+import NotFound from "./components/NotFound"
 import "./App.css";
 import { render } from "@testing-library/react";
 import backgroundImage from "./assets/bg.jpg";
+import {BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import MyPokemonList from "./components/MyPokemonList";
 
 function App() {
  
@@ -50,21 +53,32 @@ function App() {
     }))
     setPokemonData(_pokemonData)
   }
-
 render() 
   return ( 
-    <div className="main" style={{background: `url(${backgroundImage})`}}>
-    <Navbar/>
-    <div className="container">
-      {loading ? <h1>Loading Pokemons...</h1> : (
-      <div className="card-container" style={{ display:"flex",flexWrap:"wrap", justifyContent:"center"}}  >
-        {pokemonData.map((pokemon)=>{
-          return <Card key={pokemon.id} pokemon={pokemon}/>
-        })}
-      </div>)}
-    </div>
-    
-    </div>
+  <Router>
+    <Switch>
+        <Route exact path="/" render={
+          ()=>{
+            return(<div className="main" style={{background: `url(${backgroundImage})`}}>
+            <Navbar/>
+            <div className="container">
+              {loading ? <h1>Loading Pokemons...</h1> : (
+              <div className="card-container" style={{ display:"flex",flexWrap:"wrap", justifyContent:"center"}}  >
+                {pokemonData.map((pokemon)=>{
+                  return <Card key={pokemon.id} pokemon={pokemon}/>
+                })}
+              </div>)}
+            </div>    
+          </div>)
+          }
+        }>
+        </Route>
+        <Route exact path="/myPokemons" component={MyPokemonList}/>
+        <Route component={NotFound}/>
+      </Switch>
+    </Router>
+
+
 
   );
 }
