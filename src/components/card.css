@@ -32,7 +32,28 @@
 .btn:focus{
     outline: none;
     cursor: grabbing;
+}
 
+.btn-details{
+margin: 0;
+padding: 0;
+position: absolute;
+margin-top: -300px;
+margin-left: 72px;
+padding: 5px;
+border: 1px solid black;
+font-weight: bold;
+background-color: white;
+
+}
+
+.btn-details:focus{
+    outline: none;
+}
+
+.btn-details:hover{
+    cursor: pointer;
+    margin-top: -302px;
 }
 
 .card-types{
