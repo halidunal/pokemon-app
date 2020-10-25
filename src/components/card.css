@@ -20,13 +20,12 @@
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 1em;
     font-weight: bold;
     cursor: grab;
 }
 
 .btn:hover{
-    font-size: 1.2em;
+    margin-top: -2px ;
 }
 
 .btn:focus{
@@ -44,16 +43,28 @@ padding: 5px;
 border: 1px solid black;
 font-weight: bold;
 background-color: white;
+cursor: pointer;
 
 }
 
-.btn-details:focus{
+.btn-details,.btn-mypokemons:focus{
     outline: none;
 }
 
 .btn-details:hover{
-    cursor: pointer;
     margin-top: -302px;
+}
+
+.btn-mypokemons{
+    margin-top: 20px;
+    font-size: 1em;
+    padding: 10px 15px;
+    background-color: crimson;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .card-types{

@@ -1,8 +1,7 @@
 .navbar{
     background-color: darkred;
     padding: 15px 5px 15px 5px;
-    position: fixed;
-    z-index: 99;
+    position: sticky;
     width: 100%;
     font-weight: bold;
     

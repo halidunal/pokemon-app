@@ -1,18 +1,7 @@
 import React, { useState } from "react";
 import "./card.css";
-import alertify from "alertifyjs"
 
-function Card({pokemon}) {
-
-  const [myPokemons, setMyPokemons] = useState([]);
-  
-  function catchPokemon(pokemon){
-    const newPokemon = myPokemons;
-    newPokemon.push({pokemon});
-    setMyPokemons({pokemon: newPokemon});
-    alertify.success(pokemon.name + " added my pokemons");
-    console.log(myPokemons);
-  }
+function Card({pokemon, catchPokemon, releasePokemon, showDetails}) {
 
   return (
     <div
@@ -48,12 +37,16 @@ function Card({pokemon}) {
                 <p className="title">HEIGHT: {pokemon.height}</p>
             </div> */}
             <div>
-              <button className="btn-details" style={{borderRadius:10}}>Details</button>
+              <button className="btn-details" onClick={() => showDetails(pokemon)} style={{borderRadius:10}}>Details</button>
             </div>
+            {!pokemon.isCatched &&
             <div>
-                <button className="btn" onClick={()=>catchPokemon(pokemon)}>Catch Pokemon</button>
-            </div>
-
+              <button className="btn" onClick={() => catchPokemon(pokemon)}>Catch Pokemon</button>
+            </div>}
+            {pokemon.isCatched &&
+            <div>
+              <button className="btn" onClick={() => releasePokemon(pokemon)}>Release Pokemon</button>
+            </div>}
         </div>
       </div>
     </div>
