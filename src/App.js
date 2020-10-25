@@ -12,21 +12,17 @@ import NotFound from './pages/NotFound';
 function App() {
  
   return ( 
-  <Router>
-    <div></div><div className="main" style={{background: `url(${backgroundImage})`}}>
-
-    <Navbar/>
-    <Switch >
-        <Route path='/' exact component={Home} />
-        <Route path='/about' exact component={About}/>
-        <Route component={NotFound}/>
-
-      </Switch>      
+  <div className="main" style={{background: `url(${backgroundImage})`}}>
+    <Router>
+      <Navbar/>
+      <Switch >
+          <Route path='/' exact component={Home} />
+          <Route path='/about' exact component={About}/>
+          <Route component={NotFound}/>
+        </Switch>      
+      </Router>    
     </div>
-
-    </Router>
   );
-
 }
 
 export default App;

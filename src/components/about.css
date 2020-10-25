@@ -1,0 +1,86 @@
+.about{
+    margin: 50px auto 50px auto;
+
+    background-color: royalblue;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px -1px rgb(0,0,0); 
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    max-width: 300px;
+    align-items: center;
+}
+
+.bg-image{
+    padding: 6px 5px 2px 5px ;
+    border: 3px solid white;
+    border-radius: 70%;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.text{
+    color: white;
+}
+
+.text-min{
+    margin-top: -10px;
+    color: rgba(255, 255, 255, 50%);
+
+}
+
+h5{
+    margin-top: -10px;
+}
+
+.mail{
+    color: white;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 50%);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.skills{
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.skill{
+    margin: 2px ;
+    color: white;
+    font-weight: normal;
+    text-decoration: none;
+    background-color: inherit;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.icons{
+    padding: 10px 10px 5px 10px;
+    overflow: hidden;
+    margin: -20px auto 20px auto;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+}
+
+.images{
+    margin-bottom: -15px;
+}

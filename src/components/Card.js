@@ -23,19 +23,6 @@ function Card({pokemon, catchPokemon, releasePokemon, showDetails}) {
                     })
                 }
             </div>
-            {/* <div className="card-types">
-                {pokemon.abilities.map((ability) => {
-                    return (
-                    <div className="card-type">{ability.ability.name.toUpperCase()}</div>);
-                    })
-                }
-            </div> */}
-            {/* <div className="card-data card-data-weight">
-                <p className="title">WEIGHT: {pokemon.weight}</p>
-            </div>
-            <div className="card-data card-data-height">
-                <p className="title">HEIGHT: {pokemon.height}</p>
-            </div> */}
             <div>
               <button className="btn-details" onClick={() => showDetails(pokemon)} style={{borderRadius:10}}>Details</button>
             </div>

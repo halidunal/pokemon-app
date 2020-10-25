@@ -4,20 +4,21 @@ import Card from '../components/Card';
 import "../App.css";
 import "../components/card.css";
 import Modal from 'react-modal'
+import alertify from "alertifyjs"
 
 Modal.setAppElement("#root")
 
 function Home() {
 
     const [pokemonData, setPokemonData] = useState([]);
-    const [detailsData, setDetailsData] = useState([]);
+    const [detailsData, setDetailsData] = useState(null);
 
     const [loading, setLoading] = useState(true);
     const [showMyPokemons, setShowMyPokemons] = useState(false);
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
 
-    const url = "https://pokeapi.co/api/v2/pokemon?limit=10";
+    const url = "https://pokeapi.co/api/v2/pokemon?limit=50";
 
     useEffect(() => {
     async function fetchData() {
@@ -65,6 +66,7 @@ function Home() {
     setPokemonData(pokemonData.map(item => {
         if (item.id == pokemon.id) {
         item.isCatched = true;
+        alertify.success(pokemon.name + " is catched");
         }
         return item;
     }));
@@ -74,6 +76,7 @@ function Home() {
     setPokemonData(pokemonData.map(item => {
         if (item.id == pokemon.id) {
         item.isCatched = false;
+        alertify.error(pokemon.name + " is released");
         }
         return item;
     }));
@@ -90,13 +93,41 @@ function Home() {
         {loading ? <h1>Loading Pokemons...</h1> :
         (
             <div>
-            <Modal isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false)} style={{overlay:{}, content:{margin:"auto",width:500, height:400}}}>
-                <div onClick={()=> setModalIsOpen(false)} style={{textAlign:"right", cursor:"pointer"}}>X</div>
-                <div>name:{detailsData.name}</div>
-                <div >id:{detailsData.id}</div>
-                <div >height:{detailsData.height}</div>
+                {(modalIsOpen == true && detailsData != null) &&
+                <Modal isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false)} style={{overlay:{}, content:{margin:"auto",width:500, height:500}}}>
+                    <button onClick={()=> setModalIsOpen(false)} className="x-button">X</button>
+                    <div className="img">
+                        <img src={detailsData.sprites.front_default} alt=""  className="card-img" style={{width:150, marginTop:-30, marginBottom:10, backgroundColor: "white", borderRadius:100, border:"1px solid"}}/>
+                    </div>                  
+                    <div className="card-info">
+                        <div className="card-name">ID: {detailsData.id}</div>
 
-            </Modal>
+                        <div className="card-name">NAME: {detailsData.name.toUpperCase()}</div>
+
+                        <div className="card-types">TYPE: 
+                            {detailsData.types.map(type => {
+                                return (
+                                <div className="card-type">{type.type.name.toUpperCase()}</div>);
+                                })
+                            }
+                        </div>
+                        <div className="card-types">ABILITY: 
+                            {detailsData.abilities.map((ability) => {
+                                return (
+                                <div className="card-type">{ability.ability.name.toUpperCase()}</div>);
+                                })
+                            }
+                        </div> 
+                        <div className="card-types">WEIGHT:
+                            <div className="card-type"> {detailsData.weight}</div>
+                        </div>
+                        <div className="card-types">HEIGHT:
+                            <div className="card-type"> {detailsData.height}</div>
+                        </div> 
+                    </div>      
+                </Modal>
+                }
+
             <div style={{textAlign:"center"}}>
                 {!showMyPokemons ? 
                 <button className="btn-mypokemons" onClick={() => setShowMyPokemons(!showMyPokemons)}>Show My Pokemons</button>
