@@ -9,7 +9,7 @@ import alertify from "alertifyjs"
 Modal.setAppElement("#root")
 
 function Home() {
-
+    const [showScroll, setShowScroll] = useState(false)
     const [pokemonData, setPokemonData] = useState([]);
     const [detailsData, setDetailsData] = useState(null);
 
@@ -18,7 +18,7 @@ function Home() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
 
-    const url = "https://pokeapi.co/api/v2/pokemon?limit=50";
+    const url = "https://pokeapi.co/api/v2/pokemon?limit=100";
 
     useEffect(() => {
     async function fetchData() {
@@ -88,6 +88,20 @@ function Home() {
         console.log(detailsData)
     } 
 
+    const checkScrollTop = () => {
+        if (!showScroll && window.pageYOffset > 200){
+          setShowScroll(true)
+        } else if (showScroll && window.pageYOffset <= 200){
+          setShowScroll(false)
+        }
+      };
+    
+    const scrollTop = () =>{
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+
+    window.addEventListener('scroll', checkScrollTop)
+
     return (
     <div className="container">
         {loading ? <h1>Loading Pokemons...</h1> :
@@ -147,6 +161,7 @@ function Home() {
             </div>
             </div>)
         }
+        <button className="scrolltop" onClick={scrollTop} style={{display: showScroll ? 'flex' : 'none'}}>Scroll Top</button>
     </div>
     )
 }

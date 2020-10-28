@@ -17,3 +17,21 @@
 .x-button{
     float: right;
 }
+
+.scrolltop{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px;
+    color: white;
+    background-color: crimson;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+     
+}
+
+.scrolltop:focus{
+    outline: none;
+}
