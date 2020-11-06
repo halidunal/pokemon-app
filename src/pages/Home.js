@@ -104,7 +104,7 @@ function Home() {
 
     return (
     <div className="container">
-        {loading ? <h1>Loading Pokemons...</h1> :
+        {loading ? <div><h1 className="loading">Loading Pokemons...</h1><div class="loader"></div></div> :
         (
             <div>
                 {(modalIsOpen == true && detailsData != null) &&

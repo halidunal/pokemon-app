@@ -1,7 +1,6 @@
 import React from "react"
 import {BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import "./App.css";
-import backgroundImage from "./assets/bg.jpg";
 
 import Navbar from "./components/Navbar";
 import Home from './pages/Home';
@@ -12,7 +11,7 @@ import NotFound from './pages/NotFound';
 function App() {
  
   return ( 
-  <div className="main" style={{background: `url(${backgroundImage})`}}>
+  <div className="main">
     <Router>
       <Navbar/>
       <Switch >
