@@ -14,10 +14,6 @@
     margin-top: 30px;
 }
 
-.x-button{
-    float: right;
-}
-
 .scrolltop{
     position: fixed;
     bottom: 30px;
@@ -28,8 +24,7 @@
     cursor: pointer;
     font-weight: bold;
     border: none;
-    border-radius: 5px;
-     
+    border-radius: 5px;     
 }
 
 .scrolltop:focus{

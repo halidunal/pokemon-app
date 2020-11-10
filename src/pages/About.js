@@ -5,13 +5,9 @@ import lindkedin from "../assets/linkedin-brands.svg"
 import github from "../assets/github-brands.svg"
 import whatsapp from "../assets/whatsapp-brands.svg"
 
-
-
-
 export default class About extends Component {
     render() {
-        return (
-            
+        return (          
             <div className="about">
                 <div className="bg-image">
                     <img src={image} alt=""  className="card-img" style={{width:150, borderRadius:100}}/>
@@ -51,8 +47,7 @@ export default class About extends Component {
                         <p className="skill">HTML5</p>
                         <p className="skill">SQL</p>
                     </div>
-                </div>
-                
+                </div>               
             </div>
         )
     }

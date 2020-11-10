@@ -88,10 +88,41 @@ cursor: pointer;
     font-size: 1.5em;
 }
 
+.card-detail-font{
+    font-style: italic;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;   
+}
+
 .card-id{
     margin: 0px 20px 10px 20px;
     background-color: white;
     border-radius: 5px;
     border: 1px solid;
     padding: 5px;
+}
+
+.margin-top{
+    margin-top: 20px;
+}
+
+.detail-container{
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.detail-title{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.x-button{
+    float: right;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 363px;
+}
+
+span{
+    font-size: 1.3em;
 }
