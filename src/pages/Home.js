@@ -63,7 +63,8 @@ function Home() {
         setPokemonData(pokemonData.map(item => {
             if (item.id == pokemon.id) {
             item.isCatched = true;
-            alertify.success(pokemon.name + " is catched");
+            alertify.set('notifier','position', 'top-right');
+            alertify.success(pokemon.name + " caught");
             }
             return item;
         }));
@@ -73,7 +74,7 @@ function Home() {
         setPokemonData(pokemonData.map(item => {
             if (item.id == pokemon.id) {
             item.isCatched = false;
-            alertify.error(pokemon.name + " is released");
+            alertify.error(pokemon.name + " released");
             }
             return item;
         }));
@@ -163,7 +164,7 @@ function Home() {
             </div>
             </div>)
         }
-        <button className="scrolltop" onClick={scrollTop} style={{display: showScroll ? 'flex' : 'none'}}>Scroll Top</button>
+        <button className="scrolltop" onClick={scrollTop} style={{display: showScroll ? 'flex' : 'none'}}>↑ Scroll Top</button>
     </div>
     )
 }
